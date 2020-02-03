@@ -1,0 +1,53 @@
+---
+title: "Portfolio 1"
+author: "Anders Hjulmand"
+date: "2/3/2020"
+output: html_document
+---
+
+```{r}
+df <- read.csv("sleepstudy.csv")
+
+pacman::p_load(tidyverse, ggplot2,lme4, lmerTest, boot, lmerTest, caret, e1071, brms, tidybayes, lme4, wesanderson)
+
+```
+
+
+```{r}
+
+df %>% group_by(Subject)
+```
+
+
+
+
+```{r}
+#1
+
+nn<-seq(0,20,len=100)
+fdist<-df(nn,1,8)
+plot(nn,fdist, type='l',xlab='F value - df(1,8)',ylab='Density')
+
+cutoff<-qf(0.95,1,8)
+'p=0.05 cutoff value with df(2,12)'
+cutoff
+
+
+```
+
+```{r}
+
+df1 <- df %>% group_by(Subject)
+
+lm(df1, Reaction ~ Days)
+
+
+
+
+
+
+
+```
+
+
+
